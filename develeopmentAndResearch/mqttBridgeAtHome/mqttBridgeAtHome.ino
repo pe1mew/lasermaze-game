@@ -69,12 +69,19 @@ void loop() {
   }
 }
 
+/// \brief send received payload from node to MQTT
+/// \param from 32-bit address from source-node on mesh network
+/// \param msg message from source-node on mesh network
 void receivedCallback( const uint32_t &from, const String &msg ) {
   Serial.printf("bridge: Received from %u msg=%s\n", from, msg.c_str());
   String topic = "painlessMesh/from/" + String(from);
-  mqttClient.publish(topic.c_str(), msg.c_str());
+  mqttClient.publish(topic.c_str(), msg.c_str()); // publish strin to MQTT topic.
 }
 
+/// \brief
+/// \param topic topic in which payload was posted.
+/// \param payload received paulid
+/// \param length Payload length
 void mqttCallback(char* topic, uint8_t* payload, unsigned int length) {
   char* cleanPayload = (char*)malloc(length+1);
   memcpy(cleanPayload, payload, length);
@@ -84,30 +91,21 @@ void mqttCallback(char* topic, uint8_t* payload, unsigned int length) {
 
   String targetStr = String(topic).substring(16);
 
-  if(targetStr == "gateway")
-  {
-    if(msg == "getNodes")
-    {
+  if(targetStr == "gateway"){
+    if(msg == "getNodes"){
       auto nodes = mesh.getNodeList(true);
       String str;
       for (auto &&id : nodes)
         str += String(id) + String(" ");
       mqttClient.publish("painlessMesh/from/gateway", str.c_str());
     }
-  }
-  else if(targetStr == "broadcast") 
-  {
+  }else if(targetStr == "broadcast"){
     mesh.sendBroadcast(msg);
-  }
-  else
-  {
+  }else{
     uint32_t target = strtoul(targetStr.c_str(), NULL, 10);
-    if(mesh.isConnected(target))
-    {
+    if(mesh.isConnected(target)){
       mesh.sendSingle(target, msg);
-    }
-    else
-    {
+    }else{
       mqttClient.publish("painlessMesh/from/gateway", "Client not connected!");
     }
   }
