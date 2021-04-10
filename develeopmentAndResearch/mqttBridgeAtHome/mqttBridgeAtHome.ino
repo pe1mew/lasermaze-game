@@ -52,6 +52,8 @@ void setup() {
   mesh.setRoot(true);
   // This node and all other nodes should ideally know the mesh contains a root, so call this on all nodes
   mesh.setContainsRoot(true);
+
+  DynamicJsonDocument doc(1024);
 }
 
 void loop() {
@@ -70,17 +72,21 @@ void loop() {
 }
 
 /// \brief send received payload from node to MQTT
+/// If gateway is addressed in topic commands will be executed:
+/// - "gateway": present all node addresses active in mesh,
+/// - "broadcast": Send msg to all nodes in mesh,
+/// - Else verify if node is active and send msg to node.
 /// \param from 32-bit address from source-node on mesh network
 /// \param msg message from source-node on mesh network
 void receivedCallback( const uint32_t &from, const String &msg ) {
   Serial.printf("bridge: Received from %u msg=%s\n", from, msg.c_str());
   String topic = "painlessMesh/from/" + String(from);
-  mqttClient.publish(topic.c_str(), msg.c_str()); // publish strin to MQTT topic.
+  mqttClient.publish(topic.c_str(), msg.c_str()); // publish string to MQTT topic.
 }
 
 /// \brief
 /// \param topic topic in which payload was posted.
-/// \param payload received paulid
+/// \param payload received payload from MQTT broker
 /// \param length Payload length
 void mqttCallback(char* topic, uint8_t* payload, unsigned int length) {
   char* cleanPayload = (char*)malloc(length+1);
