@@ -17,8 +17,8 @@
 #define   MESH_PASSWORD   "lasermaze"
 #define   MESH_PORT       5555
 
-#define   STATION_SSID     "familyaccess_nomap"
-#define   STATION_PASSWORD "0652528773"
+#define   STATION_SSID     "laserbase"
+#define   STATION_PASSWORD "laserbase"
 
 #define HOSTNAME "MQTT_Bridge"
 
@@ -29,7 +29,7 @@ void mqttCallback(char* topic, byte* payload, unsigned int length);
 IPAddress getlocalIP();
 
 IPAddress myIP(0,0,0,0);
-IPAddress mqttBroker(192, 168, 20, 199);
+IPAddress mqttBroker(172, 31, 0, 10);
 
 painlessMesh  mesh;
 WiFiClient wifiClient;
