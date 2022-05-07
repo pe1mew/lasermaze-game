@@ -1,0 +1,29 @@
+@startuml
+actor arbiter 
+actor player
+
+cloud painlessMesh
+arbiter  -> [game controller]
+[game controller] <-> [MQTT Broker] : MQTT
+[MQTT Broker] <-> [Mesh gateway] : MQTT
+[Mesh gateway] <--> painlessMesh
+painlessMesh <--> [input concentrator 1]
+painlessMesh <--> [input concentrator n]
+painlessMesh <--> [output concentrator 1]
+painlessMesh <--> [output concentrator n]
+
+[output concentrator 1] --> [laser 1]
+[laser 1] ..> [detector 1] : laser light
+[input concentrator 1] <-- [detector 1]
+
+[output concentrator 1] --> [laser 2]
+[laser 2] ..> player : laser light
+player  ~~> [detector 2] 
+[input concentrator 1] <-- [detector 2]
+
+[PIR-detector] --> [input concentrator n]
+[Switch] --> [input concentrator n]
+
+[output concentrator n] --> [Siren]
+[output concentrator n] --> [Strobe light]
+@enduml

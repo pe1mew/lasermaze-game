@@ -3,33 +3,38 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
-#include <string.h>
- 
-const char*   WiFissid           = "laserbase";
-const char*   WiFipassword       = "laserbase";
-unsigned long WiFipreviousMillis = 0;
-unsigned long WiFiinterval       = 30000;
-const char* mqttServer   = "172.31.0.10";
-const int   mqttPort     = 1883;
-const char* mqttUser     = "remko";
-const char* mqttPassword = "7321jh36";
+#include <string.h> // memset()
 
-const String baseTopic   = "lasermaze/"; 
-String chipId;
-String topic; 
-char Buf[50] = "\0";
-#define TOPIC_BUFFER_SIZE 50
-char topicBuffer[TOPIC_BUFFER_SIZE];
-       
-WiFiClient espClient;
-PubSubClient client(espClient);
+#include "beaconLed.h"
  
+const char*   WiFissid           = "laserbase"; ///< SSID of WiFi access point
+const char*   WiFipassword       = "laserbase"; ///< passwordt for WiFi accesspoint
+unsigned long WiFipreviousMillis = 0;           ///< Variable to hold last moment on which WiFi connection is tested. 
+unsigned long WiFiinterval       = 30000;       ///< inteval in milliseconds at which WiFi connection is tested.
+
+const char* mqttServer   = "172.31.0.10";       ///< MQTT broker address or IP
+const int   mqttPort     = 1883;                ///< MQTT broker portnumber
+const char* mqttUser     = "remko";             ///< MQTT username for access to broker
+const char* mqttPassword = "remko";             ///< MQTT password for access to broker
+
+const String baseTopic   = "lasermaze/";        ///< Base topic for topic structure on broker
+String chipId;                                  ///< Chip ID as retrieved from ESP8266 in setup()
+String topic;                                   ///< Topic to be used prefixing other publications and subscriptions
+#define TOPIC_BUFFER_SIZE 50                    ///< Size of helper buffer
+char topicBuffer[TOPIC_BUFFER_SIZE];            ///< helper buffer for conversions of topics in String format.
+       
+WiFiClient espClient;                           ///< WiFi opbject on ESP8266
+PubSubClient client(espClient);                 ///< MQTT client object
+beaconLed led = beaconLed();         ///< object for LED control
+ 
+/// \brief initialize WiFi on ESP8266
 void WiFiinit() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(WiFissid, WiFipassword);
   Serial.print("WIFI: Connecting...\n");
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print('.');
+//    led.blink(1, 1000);
     delay(1000);
   }
   Serial.print("\nWiFi: ");
@@ -39,8 +44,10 @@ void WiFiinit() {
   WiFi.persistent(true);
 }
 
+/// \brief test if WiFi is connected and reconnect when disconnected. 
+/// When connected the RSSI is printed and published on MQTT
+/// This function acivates every WiFiinterval in milliseconds
 void WiFireconnect(){
-  //print the Wi-Fi status every 30 seconds
   unsigned long WiFicurrentMillis = millis();
   if (WiFicurrentMillis - WiFipreviousMillis >= WiFiinterval){
     switch (WiFi.status()){
@@ -49,6 +56,7 @@ void WiFireconnect(){
         break;
       case WL_CONNECTED:
         Serial.println("WiFi: connection established");
+//        led.blink(1, 200);
         break;
       case WL_CONNECT_FAILED:
         Serial.println("WiFi: Connection failed");
@@ -72,12 +80,14 @@ void WiFireconnect(){
   }
 }
 
+/// \brief Initialize MQTT client and connect to broker.
 void MQTTinit() {
   client.setServer(mqttServer, mqttPort);
   client.setCallback(MQTTcallback);
   MQTTreconnect();
 }
 
+/// \brief test is MQTT client is connected and reconnect when not connected. 
 void MQTTreconnect(){
   while (!client.connected()) {
     Serial.println("MQTT: Connecting...");
@@ -86,7 +96,7 @@ void MQTTreconnect(){
     if (client.connect(clientID, mqttUser, mqttPassword )) {
 //    if (client.connect("ESP8266Client", mqttUser, mqttPassword )) {
       Serial.println("MQTT: Connected");
-
+//      led.blink(2, 200);
       memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
       topic.toCharArray(topicBuffer, 50);
       client.publish(topicBuffer, "Hello world");
@@ -94,14 +104,16 @@ void MQTTreconnect(){
     } else {
       Serial.print("MQTT: Failed with state ");
       Serial.print(client.state());
+//      led.blink(2, 2000);
       delay(2000);
     }
   }
 }
 
+/// \brief Setup ESP8266
 void setup() {
+  //  led.setOff();
   Serial.begin(115200);
-  Serial.flush();
 
   chipId = ESP.getChipId();
   Serial.print("\nChipID: ");
@@ -111,8 +123,10 @@ void setup() {
   
   WiFiinit();
   MQTTinit();
+//  led.setOff();
 }
- 
+
+/// \brief callback function when MQTT message is received. 
 void MQTTcallback(char* topic, byte* payload, unsigned int length) {
   Serial.print("MQTT: Message in topic: ");
   Serial.println(topic);
@@ -121,10 +135,12 @@ void MQTTcallback(char* topic, byte* payload, unsigned int length) {
     Serial.print((char)payload[i]);
   }
 }
- 
+
+/// \brief Main loop.
 void loop() {
   client.loop();
-
+//  led.setOff();
+        
   WiFireconnect();
   MQTTreconnect();
   

@@ -1,26 +1,24 @@
 
-const int INPUT_0_PIN = 2;
-const int INPUT_1_PIN = 0;
-const int INPUT_2_PIN = 4;
-const int INPUT_3_PIN = 5;
-const int INPUT_4_PIN = 14;
-const int INPUT_5_PIN = 12;
-const int INPUT_6_PIN = 13;
-const int INPUT_7_PIN = 15;
+const int INPUT_0_PIN = 2;  // GPIO2  D4
+const int INPUT_1_PIN = 0;  // GPIO0  D3
+const int INPUT_2_PIN = 4;  // GPIO4  D2
+const int INPUT_3_PIN = 5;  // GPIO5  D1
+const int INPUT_4_PIN = 14; // GPIO14 D5/SCK
+const int INPUT_5_PIN = 12; // GPIO12 D6/MISO
+const int INPUT_6_PIN = 13; // GPIO13 D7/MOSI
 
 uint8_t inputState = 0xff;
 
 void setup() {
   Serial.begin(115200);
   
-  pinMode(INPUT_0_PIN, INPUT);
-  pinMode(INPUT_1_PIN, INPUT);
-  pinMode(INPUT_2_PIN, INPUT);
-  pinMode(INPUT_3_PIN, INPUT);
-  pinMode(INPUT_4_PIN, INPUT);
-  pinMode(INPUT_5_PIN, INPUT);
-  pinMode(INPUT_6_PIN, INPUT);
-  pinMode(INPUT_7_PIN, INPUT);
+  pinMode(INPUT_0_PIN, INPUT_PULLUP);
+  pinMode(INPUT_1_PIN, INPUT_PULLUP);
+  pinMode(INPUT_2_PIN, INPUT_PULLUP);
+  pinMode(INPUT_3_PIN, INPUT_PULLUP);
+  pinMode(INPUT_4_PIN, INPUT_PULLUP);
+  pinMode(INPUT_5_PIN, INPUT_PULLUP);
+  pinMode(INPUT_6_PIN, INPUT_PULLUP);
 
   Serial.println("\nStarting...");
 }
@@ -68,12 +66,6 @@ void loop() {
     inputState |= 0x40;  
   }else{
     inputState &= 0xbf;
-  }
-  
-  if(digitalRead(INPUT_7_PIN) == LOW){
-    inputState |= 0x80;  
-  }else{
-    inputState &= 0x7f;
   }
   
   if(oldInputState != inputState){
