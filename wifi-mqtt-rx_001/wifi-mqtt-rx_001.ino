@@ -106,7 +106,7 @@ void MQTTreconnect(){
       client.subscribe(topicBuffer);
     } else {
       Serial.print("MQTT: Failed with state ");
-      Serial.print(client.state());
+      Serial.println(client.state());
       delay(2000);
     }
   }
