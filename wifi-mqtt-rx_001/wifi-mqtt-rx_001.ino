@@ -1,5 +1,32 @@
-// From: https://techtutorialsx.com/2017/04/09/esp8266-connecting-to-mqtt-broker/
+/*--------------------------------------------------------------------
+  This code is free software:
+  you can redistribute it and/or modify it under the terms of a Creative
+  Commons Attribution-NonCommercial 4.0 International License
+  (http://creativecommons.org/licenses/by-nc/4.0/) by
+  Remko Welling (http://pe1mew.nl) E-mail: pe1mew@gmail.com
 
+  The program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  --------------------------------------------------------------------*/
+
+/*!
+ * \file wifi-mqtt-rx_001.ino
+ * \brief Posts changes on GPIO ports on MQTT through a WiFi connection .
+ * Inspired on: https://techtutorialsx.com/2017/04/09/esp8266-connecting-to-mqtt-broker/
+ * \author Remko Welling (pe1mew@gmail.com)
+ * 
+ * # Revision history
+ * 
+ * Version|Date      |Note
+ * --------------------------------------
+ * 0.1    |7-5-2022  | Initial release
+ * 
+ * 
+ * \todo send state on request.
+ * \todo respond to status request
+ */
+ 
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
@@ -14,6 +41,7 @@ const int INPUT_5_PIN = 12; // GPIO12 D6/MISO
 const int INPUT_6_PIN = 13; // GPIO13 D7/MOSI
 
 uint8_t inputState = 0x00;
+bool sendState = false;
  
 const char*   WiFissid           = "laserbase"; ///< SSID of WiFi access point
 const char*   WiFipassword       = "laserbase"; ///< passwordt for WiFi accesspoint
@@ -96,15 +124,15 @@ void MQTTinit() {
 void MQTTreconnect(){
   while (!client.connected()) {
     Serial.println("MQTT: Connecting...");
-//    char clientID[TOPIC_BUFFER_SIZE] = "\0";
-//    chipId.toCharArray(clientID, 50);
-//    if (client.connect(clientID, mqttUser, mqttPassword )) {
-    if (client.connect("001", mqttUser, mqttPassword )) {
+    char clientID[10] = "\0";
+    itoa(chipId, clientID, 10);
+    if (client.connect(clientID, mqttUser, mqttPassword )) {
       Serial.println("MQTT: Connected");
       memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
       topic.toCharArray(topicBuffer, 50);
       client.publish(topicBuffer, "Hello world");
       client.subscribe(topicBuffer);
+      sendState = true;     // send actual input state after MQTT reconnect
     } else {
       Serial.print("MQTT: Failed with state ");
       Serial.println(client.state());
@@ -197,28 +225,25 @@ void loop() {
     inputState &= 0xbf;
   }
   
-  if(oldInputState != inputState){
+  if((oldInputState != inputState) || sendState){
     Serial.print("GPIO: ");
     Serial.println(inputState, BIN);
 
     for(int i = 0; i < 7; i++){
-      if(((oldInputState >> i) & 0x01) != ((inputState >> i) & 0x01)){
-        char inputBuffer[5] = "\0";
-        itoa(i, inputBuffer, 5);
+      if((((oldInputState >> i) & 0x01) != ((inputState >> i) & 0x01)) || sendState){
         memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
-        String tempTopic = topic + "input/" + inputBuffer + "/";
+        String tempTopic = topic + "input/" + i + "/";
         tempTopic.toCharArray(topicBuffer, TOPIC_BUFFER_SIZE);
         
-        if(((inputState >> i) & 0x01) > 0){
-          // send 1
+        if(((inputState >> i) & 0x01) > 0){ // send 1
           client.publish(topicBuffer, "1");
-        }else{
-          // send 0
+        }else{                              // send 0
           client.publish(topicBuffer, "0");
         }
       }
     }
   }
+  if(sendState){
+    sendState = false;
+  }
 }
-
-//void MQTTsend
