@@ -26,7 +26,7 @@ const char* mqttUser     = "remko";             ///< MQTT username for access to
 const char* mqttPassword = "remko";             ///< MQTT password for access to broker
 
 const String baseTopic   = "lasermaze/";        ///< Base topic for topic structure on broker
-String chipId;                                  ///< Chip ID as retrieved from ESP8266 in setup()
+uint32_t chipId;                                ///< Chip ID as retrieved from ESP8266 in setup()
 String topic;                                   ///< Topic to be used prefixing other publications and subscriptions
 #define TOPIC_BUFFER_SIZE 50                    ///< Size of helper buffer
 char topicBuffer[TOPIC_BUFFER_SIZE];            ///< helper buffer for conversions of topics in String format.
@@ -96,9 +96,10 @@ void MQTTinit() {
 void MQTTreconnect(){
   while (!client.connected()) {
     Serial.println("MQTT: Connecting...");
-    char clientID[TOPIC_BUFFER_SIZE] = "\0";
-    chipId.toCharArray(clientID, 50);
-    if (client.connect(clientID, mqttUser, mqttPassword )) {
+//    char clientID[TOPIC_BUFFER_SIZE] = "\0";
+//    chipId.toCharArray(clientID, 50);
+//    if (client.connect(clientID, mqttUser, mqttPassword )) {
+    if (client.connect("001", mqttUser, mqttPassword )) {
       Serial.println("MQTT: Connected");
       memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
       topic.toCharArray(topicBuffer, 50);
