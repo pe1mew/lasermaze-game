@@ -57,6 +57,8 @@ const char* mqttUser     = "remko";             ///< MQTT username for access to
 const char* mqttPassword = "remko";             ///< MQTT password for access to broker
 
 const String baseTopic   = "lasermaze/";        ///< Base topic for topic structure on broker
+String subscribeTopic;
+
 uint32_t chipId;                                ///< Chip ID as retrieved from ESP8266 in setup()
 String topic;                                   ///< Topic to be used prefixing other publications and subscriptions
 #define TOPIC_BUFFER_SIZE 50                    ///< Size of helper buffer
@@ -134,6 +136,8 @@ void MQTTreconnect(){
       memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
       topic.toCharArray(topicBuffer, 50);
       client.publish(topicBuffer, "Hello world");
+      memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
+      subscribeTopic.toCharArray(topicBuffer, 50);
       client.subscribe(topicBuffer);
       setState = true;     // send actual input state after MQTT reconnect
       sendState = true;     // send actual input state after MQTT reconnect
@@ -163,6 +167,8 @@ void setup() {
   Serial.println(chipId);
   topic = baseTopic + chipId + "/";
   Serial.println(topic);
+  subscribeTopic = topic + "output/#";
+  Serial.println(subscribeTopic);
   
   WiFiinit();
   MQTTinit();
@@ -172,9 +178,24 @@ void setup() {
 void MQTTcallback(char* topic, byte* payload, unsigned int length) {
   Serial.print("MQTT: Message in topic: ");
   Serial.println(topic);
-  Serial.print("MQTT: Message: ");
+  Serial.print("MQTT: Payload: ");
   for (int i = 0; i < length; i++) {
     Serial.print((char)payload[i]);
+  }
+  Serial.print("\n");
+  
+  memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
+  strncpy(topicBuffer, topic + 19, 6);
+//  Serial.println(topicBuffer);
+  if (strcmp(topicBuffer, "output") == 0){
+    char gpio[5] = "\0";
+    strncpy(gpio, topic + 26, 1);
+    uint8_t port = atoi(gpio);
+    Serial.println(port);
+    char payloadBuffer[5] = "\0";
+    strncpy(payloadBuffer, (char*)payload, 1);
+    uint8_t state = atoi(payloadBuffer);
+    Serial.println(state);
   }
 }
 
