@@ -23,8 +23,6 @@
  * 0.1    |7-5-2022  | Initial release
  * 
  * 
- * \todo send state on request.
- * \todo respond to status request
  */
  
 #include <ESP8266WiFi.h>
@@ -54,6 +52,8 @@ const char* mqttUser     = "remko";             ///< MQTT username for access to
 const char* mqttPassword = "remko";             ///< MQTT password for access to broker
 
 const String baseTopic   = "lasermaze/";        ///< Base topic for topic structure on broker
+String subscribeTopic;
+
 uint32_t chipId;                                ///< Chip ID as retrieved from ESP8266 in setup()
 String topic;                                   ///< Topic to be used prefixing other publications and subscriptions
 #define TOPIC_BUFFER_SIZE 50                    ///< Size of helper buffer
@@ -89,24 +89,19 @@ void WiFireconnect(){
         Serial.println("WiFi: SSID cannot be reached");
         break;
       case WL_CONNECTED:
-        Serial.println("WiFi: connection established");
+        Serial.printf("WiFi: Connected, status: %d, RSSI: %d dBm.\n", WiFi.status(), WiFi.RSSI());
         break;
       case WL_CONNECT_FAILED:
         Serial.println("WiFi: Connection failed");
         break;
     }
-    Serial.printf("WiFi: status: %d, ", WiFi.status());
-    Serial.print("RSSI: ");
-    int rssi = WiFi.RSSI();
-    Serial.print(rssi);
-    Serial.println(" dBm.");
-
+    
     if(client.connected()){
       memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
       String tempTopic = topic + "wifi/rssi/";
       tempTopic.toCharArray(topicBuffer, TOPIC_BUFFER_SIZE);
       char payload[10] = "\0";
-      itoa(rssi, payload, 10);
+      itoa(WiFi.RSSI(), payload, 10);
       client.publish(topicBuffer, payload);
     }
     WiFipreviousMillis = WiFicurrentMillis;
@@ -131,6 +126,8 @@ void MQTTreconnect(){
       memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
       topic.toCharArray(topicBuffer, 50);
       client.publish(topicBuffer, "Hello world");
+      memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
+      subscribeTopic.toCharArray(topicBuffer, 50);
       client.subscribe(topicBuffer);
       sendState = true;     // send actual input state after MQTT reconnect
     } else {
@@ -159,7 +156,9 @@ void setup() {
   Serial.println(chipId);
   topic = baseTopic + chipId + "/";
   Serial.println(topic);
-  
+  subscribeTopic = topic + "input/#";
+  Serial.println(subscribeTopic);
+    
   WiFiinit();
   MQTTinit();
 }
@@ -167,11 +166,30 @@ void setup() {
 /// \brief callback function when MQTT message is received. 
 void MQTTcallback(char* topic, byte* payload, unsigned int length) {
   Serial.print("MQTT: Message in topic: ");
-  Serial.println(topic);
-  Serial.print("MQTT: Message: ");
+  Serial.print(topic);
+  Serial.print(", Payload: ");
   for (int i = 0; i < length; i++) {
     Serial.print((char)payload[i]);
   }
+  Serial.print("\n");
+
+  memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
+  strncpy(topicBuffer, topic + 19, 5);
+  
+  if (strcmp(topicBuffer, "input") == 0){
+    char gpio[5] = "\0";
+    strncpy(gpio, topic + 25, 1);
+    uint8_t port = atoi(gpio);
+    char payloadBuffer[5] = "\0";
+    strncpy(payloadBuffer, (char*)payload, 1);
+    uint8_t state = (atoi(payloadBuffer) & 0x01);
+    
+    if(port < 8){ // valid port selected
+      // nothing to do
+    }else{
+      sendState = true;
+    }
+  } 
 }
 
 /// \brief Main loop.

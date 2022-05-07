@@ -23,8 +23,7 @@
  * 0.1    |7-5-2022  | Initial release
  * 
  * 
- * \todo send state on request.
- * \todo respond to status request
+ * 
  */
  
 #include <ESP8266WiFi.h>
@@ -42,7 +41,7 @@ const int OUTPUT_6_PIN = 13;  // GPIO13 D7/MOSI
 const int OUTPUT_7_PIN = 15;
 
 uint8_t outputState    = 0x00;
-uint8_t newOutputState = 0x00;
+uint8_t newOutputState = 0xFF;
 bool    setState       = false;
 bool    sendState      = false;
  
@@ -58,7 +57,6 @@ const char* mqttPassword = "remko";             ///< MQTT password for access to
 
 const String baseTopic   = "lasermaze/";        ///< Base topic for topic structure on broker
 String subscribeTopic;
-
 uint32_t chipId;                                ///< Chip ID as retrieved from ESP8266 in setup()
 String topic;                                   ///< Topic to be used prefixing other publications and subscriptions
 #define TOPIC_BUFFER_SIZE 50                    ///< Size of helper buffer
@@ -214,58 +212,58 @@ void loop() {
     
     // Test ouput pin 0
     if((newOutputState & 0x01) == 0){
-      digitalWrite(OUTPUT_0_PIN, HIGH);  
+      digitalWrite(OUTPUT_0_PIN, LOW);  
     }else{
-      digitalWrite(OUTPUT_0_PIN, LOW);
+      digitalWrite(OUTPUT_0_PIN, HIGH);
     }
     
     // Test ouput pin 1
     if((newOutputState & 0x02) == 0){
-      digitalWrite(OUTPUT_1_PIN, HIGH);  
+      digitalWrite(OUTPUT_1_PIN, LOW);  
     }else{
-      digitalWrite(OUTPUT_1_PIN, LOW);
+      digitalWrite(OUTPUT_1_PIN, HIGH);
     }
     
     // Test ouput pin 2
     if((newOutputState & 0x04) == 0){
-      digitalWrite(OUTPUT_2_PIN, HIGH);  
+      digitalWrite(OUTPUT_2_PIN, LOW);  
     }else{
-      digitalWrite(OUTPUT_2_PIN, LOW);
+      digitalWrite(OUTPUT_2_PIN, HIGH);
     }
     
     // Test ouput pin 3
     if((newOutputState & 0x08) == 0){
-      digitalWrite(OUTPUT_3_PIN, HIGH);  
+      digitalWrite(OUTPUT_3_PIN, LOW);  
     }else{
-      digitalWrite(OUTPUT_3_PIN, LOW);
+      digitalWrite(OUTPUT_3_PIN, HIGH);
     }
     
     // Test ouput pin 4
     if((newOutputState & 0x10) == 0){
-      digitalWrite(OUTPUT_4_PIN, HIGH);  
+      digitalWrite(OUTPUT_4_PIN, LOW);  
     }else{
-      digitalWrite(OUTPUT_4_PIN, LOW);
+      digitalWrite(OUTPUT_4_PIN, HIGH);
     }
     
     // Test ouput pin 5
     if((newOutputState & 0x20) == 0){
-      digitalWrite(OUTPUT_5_PIN, HIGH);  
+      digitalWrite(OUTPUT_5_PIN, LOW);  
     }else{
-      digitalWrite(OUTPUT_5_PIN, LOW);
+      digitalWrite(OUTPUT_5_PIN, HIGH);
     }
     
     // Test ouput pin 6
     if((newOutputState & 0x40) == 0){
-      digitalWrite(OUTPUT_6_PIN, HIGH);  
+      digitalWrite(OUTPUT_6_PIN, LOW);  
     }else{
-      digitalWrite(OUTPUT_6_PIN, LOW);
+      digitalWrite(OUTPUT_6_PIN, HIGH);
     }
     
     // Test ouput pin 7
     if((newOutputState & 0x80) == 0){
-      digitalWrite(OUTPUT_7_PIN, HIGH);  
+      digitalWrite(OUTPUT_7_PIN, LOW);  
     }else{
-      digitalWrite(OUTPUT_7_PIN, LOW);
+      digitalWrite(OUTPUT_7_PIN, HIGH);
     }
 
     outputState = newOutputState;
