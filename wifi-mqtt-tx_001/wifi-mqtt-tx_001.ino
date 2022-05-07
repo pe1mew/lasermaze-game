@@ -94,24 +94,19 @@ void WiFireconnect(){
         Serial.println("WiFi: SSID cannot be reached");
         break;
       case WL_CONNECTED:
-        Serial.println("WiFi: connection established");
+        Serial.printf("WiFi: Connected, status: %d, RSSI: %d dBm.\n", WiFi.status(), WiFi.RSSI());
         break;
       case WL_CONNECT_FAILED:
         Serial.println("WiFi: Connection failed");
         break;
     }
-    Serial.printf("WiFi: status: %d, ", WiFi.status());
-    Serial.print("RSSI: ");
-    int rssi = WiFi.RSSI();
-    Serial.print(rssi);
-    Serial.println(" dBm.");
 
     if(client.connected()){
       memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
       String tempTopic = topic + "wifi/rssi/";
       tempTopic.toCharArray(topicBuffer, TOPIC_BUFFER_SIZE);
       char payload[10] = "\0";
-      itoa(rssi, payload, 10);
+      itoa(WiFi.RSSI(), payload, 10);
       client.publish(topicBuffer, payload);
     }
     WiFipreviousMillis = WiFicurrentMillis;
@@ -177,26 +172,34 @@ void setup() {
 /// \brief callback function when MQTT message is received. 
 void MQTTcallback(char* topic, byte* payload, unsigned int length) {
   Serial.print("MQTT: Message in topic: ");
-  Serial.println(topic);
-  Serial.print("MQTT: Payload: ");
+  Serial.print(topic);
+  Serial.print(", Payload: ");
   for (int i = 0; i < length; i++) {
     Serial.print((char)payload[i]);
   }
   Serial.print("\n");
-  
+
   memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
   strncpy(topicBuffer, topic + 19, 6);
-//  Serial.println(topicBuffer);
+  
   if (strcmp(topicBuffer, "output") == 0){
     char gpio[5] = "\0";
     strncpy(gpio, topic + 26, 1);
     uint8_t port = atoi(gpio);
-    Serial.println(port);
     char payloadBuffer[5] = "\0";
     strncpy(payloadBuffer, (char*)payload, 1);
-    uint8_t state = atoi(payloadBuffer);
-    Serial.println(state);
-  }
+    uint8_t state = (atoi(payloadBuffer) & 0x01);
+    
+    if(port < 8){ // valid port selected
+      if(state == 0){  // Set port
+        newOutputState &= ~(1 << port);
+      }else{
+        newOutputState |= (1 << port);
+      }
+    }else{
+      sendState = true;
+    }
+  } 
 }
 
 /// \brief Main loop.
@@ -207,8 +210,7 @@ void loop() {
   MQTTreconnect();
 
   if((newOutputState != outputState) || setState){
-    Serial.print("GPIO: ");
-    Serial.println(newOutputState, BIN);
+    printGPIO(newOutputState);
     
     // Test ouput pin 0
     if((newOutputState & 0x01) == 0){
@@ -270,17 +272,19 @@ void loop() {
     if(setState){
       setState = false;
     }
-
-    if(sendState){
-      sendGPIOState();
-    }
+  }
+  
+  if(sendState){
+    sendGPIOState();
+    sendState = false;
   }
 }
 
+/// \brief Send GPIO state on MQTT
 void sendGPIOState(){
   for(int i = 0; i < 8; i++){
     memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
-    String tempTopic = topic + "output/" + i + "/";
+    String tempTopic = topic + "state/" + i + "/";
     tempTopic.toCharArray(topicBuffer, TOPIC_BUFFER_SIZE);
     
     if(((outputState >> i) & 0x01) > 0){ // send 1
@@ -289,4 +293,17 @@ void sendGPIOState(){
       client.publish(topicBuffer, "0");
     }
   }
+}
+
+/// \brief print GPIO state
+void printGPIO(uint8_t state){
+  Serial.print("GPIO: ");
+  for (int i = 0; i < 8; i++) {
+    if((state >> 7-i) & 0x01 == 0x01){
+      Serial.print("1");
+    }else{
+      Serial.print("0");
+    }
+  }
+  Serial.print("\n");
 }

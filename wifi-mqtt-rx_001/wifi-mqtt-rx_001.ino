@@ -226,9 +226,8 @@ void loop() {
   }
   
   if((oldInputState != inputState) || sendState){
-    Serial.print("GPIO: ");
-    Serial.println(inputState, BIN);
-
+    printGPIO(inputState);
+    
     for(int i = 0; i < 7; i++){
       if((((oldInputState >> i) & 0x01) != ((inputState >> i) & 0x01)) || sendState){
         memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
@@ -246,4 +245,17 @@ void loop() {
   if(sendState){
     sendState = false;
   }
+}
+
+/// \brief print GPIO state
+void printGPIO(uint8_t state){
+  Serial.print("GPIO: ");
+  for (int i = 0; i < 8; i++) {
+    if((state >> 7-i) & 0x01 == 0x01){
+      Serial.print("1");
+    }else{
+      Serial.print("0");
+    }
+  }
+  Serial.print("\n");
 }
