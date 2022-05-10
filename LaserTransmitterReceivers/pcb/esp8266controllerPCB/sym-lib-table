@@ -27,4 +27,5 @@
   (lib (name SparkFun-RF)(type Legacy)(uri C:/Users/drasv/Documents/KiCad/Libraries/SparkFun-KiCad-Libraries/Libraries/SparkFun-RF.lib)(options "")(descr ""))
   (lib (name SparkFun-Sensors)(type Legacy)(uri C:/Users/drasv/Documents/KiCad/Libraries/SparkFun-KiCad-Libraries/Libraries/SparkFun-Sensors.lib)(options "")(descr ""))
   (lib (name SparkFun-Switches)(type Legacy)(uri C:/Users/drasv/Documents/KiCad/Libraries/SparkFun-KiCad-Libraries/Libraries/SparkFun-Switches.lib)(options "")(descr ""))
+  (lib (name components)(type Legacy)(uri ${KIPRJMOD}/components.lib)(options "")(descr ""))
 )
