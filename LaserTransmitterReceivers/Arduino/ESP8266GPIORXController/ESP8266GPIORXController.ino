@@ -21,7 +21,7 @@
  * Version|Date      |Note
  * --------------------------------------
  * 0.1    |7-5-2022  | Initial release
- * 
+ * 0.2    |4-6-2022  | Added watchdog activity light on port 7
  * 
  */
  
@@ -30,6 +30,10 @@
 
 #include <string.h> // memset()
 
+#include "credentials.h"
+#include "PE1MEW_Led.h"                 // PE1MEW_Led class
+#include "PE1MEW_Timer.h"
+
 const int INPUT_0_PIN = 2;  // GPIO2  D4
 const int INPUT_1_PIN = 0;  // GPIO0  D3
 const int INPUT_2_PIN = 4;  // GPIO4  D2
@@ -37,19 +41,13 @@ const int INPUT_3_PIN = 5;  // GPIO5  D1
 const int INPUT_4_PIN = 14; // GPIO14 D5/SCK
 const int INPUT_5_PIN = 12; // GPIO12 D6/MISO
 const int INPUT_6_PIN = 13; // GPIO13 D7/MOSI
+const int OUTPUT_7_PIN = 15;
 
 uint8_t inputState = 0x00;
 bool sendState = false;
  
-const char*   WiFissid           = "laserbase"; ///< SSID of WiFi access point
-const char*   WiFipassword       = "laserbase"; ///< passwordt for WiFi accesspoint
 unsigned long WiFipreviousMillis = 0;           ///< Variable to hold last moment on which WiFi connection is tested. 
 unsigned long WiFiinterval       = 30000;       ///< inteval in milliseconds at which WiFi connection is tested.
-
-const char* mqttServer   = "172.31.0.10";       ///< MQTT broker address or IP
-const int   mqttPort     = 1883;                ///< MQTT broker portnumber
-const char* mqttUser     = "remko";             ///< MQTT username for access to broker
-const char* mqttPassword = "remko";             ///< MQTT password for access to broker
 
 const String baseTopic   = "lasermaze/";        ///< Base topic for topic structure on broker
 String subscribeTopic;
@@ -61,6 +59,9 @@ char topicBuffer[TOPIC_BUFFER_SIZE];            ///< helper buffer for conversio
        
 WiFiClient espClient;                           ///< WiFi opbject on ESP8266
 PubSubClient client(espClient);                 ///< MQTT client object
+
+PE1MEW_Timer timer;
+PE1MEW_Led   led = PE1MEW_Led(OUTPUT_7_PIN);
  
 /// \brief initialize WiFi on ESP8266
 void WiFiinit() {
@@ -150,7 +151,6 @@ void setup() {
   pinMode(INPUT_5_PIN, INPUT_PULLUP);
   pinMode(INPUT_6_PIN, INPUT_PULLUP);
 
-
   chipId = ESP.getChipId();
   Serial.print("\nChipID: ");
   Serial.println(chipId);
@@ -173,6 +173,9 @@ void MQTTcallback(char* topic, byte* payload, unsigned int length) {
   }
   Serial.print("\n");
 
+  timer.setExpiry(45000); // 45 seconds
+  led.startBlink(true, 1, 500);
+  
   memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
   strncpy(topicBuffer, topic + 19, 5);
   
@@ -198,6 +201,12 @@ void loop() {
         
   WiFireconnect();
   MQTTreconnect();
+
+  led.process();
+
+  if(timer.getExpired() == true){
+    led.stopBlink();
+  }
 
   uint8_t oldInputState = inputState;
   
