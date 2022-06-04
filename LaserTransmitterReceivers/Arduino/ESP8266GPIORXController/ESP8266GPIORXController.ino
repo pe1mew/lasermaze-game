@@ -119,6 +119,7 @@ void MQTTinit() {
 /// \brief test is MQTT client is connected and reconnect when not connected. 
 void MQTTreconnect(){
   while (!client.connected()) {
+    led.setOff();
     Serial.println("MQTT: Connecting...");
     char clientID[10] = "\0";
     itoa(chipId, clientID, 10);
