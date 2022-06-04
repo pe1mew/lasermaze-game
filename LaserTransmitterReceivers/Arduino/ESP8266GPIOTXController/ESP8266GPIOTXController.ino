@@ -21,7 +21,7 @@
  * Version|Date      |Note
  * --------------------------------------
  * 0.1    |7-5-2022  | Initial release
- * 0.2    |4-6-2022  | Added port specific state report after set port comand
+ * 0.2    |4-6-2022  | Added port specific state report after set port comand, Added credentials file usage
  * 
  * 
  */
@@ -46,15 +46,8 @@ uint8_t newOutputState = 0xFF;
 bool    setState       = false;
 bool    sendState      = false;
  
-//const char*   WiFissid           = "laserbase"; ///< SSID of WiFi access point
-//const char*   WiFipassword       = "laserbase"; ///< passwordt for WiFi accesspoint
 unsigned long WiFipreviousMillis = 0;           ///< Variable to hold last moment on which WiFi connection is tested. 
 unsigned long WiFiinterval       = 30000;       ///< inteval in milliseconds at which WiFi connection is tested.
-
-//const char* mqttServer   = "172.31.0.10";       ///< MQTT broker address or IP
-//const int   mqttPort     = 1883;                ///< MQTT broker portnumber
-//const char* mqttUser     = "remko";             ///< MQTT username for access to broker
-//const char* mqttPassword = "remko";             ///< MQTT password for access to broker
 
 const String baseTopic   = "lasermaze/";        ///< Base topic for topic structure on broker
 String subscribeTopic;
