@@ -1,0 +1,12 @@
+@startuml
+[*] --> state_safe 
+
+state_safe : Lasermaze is disabled
+state_armed : Lasermaze is active all alarms indicated
+state_end : Lasermaze is stopped.
+
+state_safe -> state_armed : Red button released
+state_armed -> state_end : END button pressed
+state_end --> state_safe  : Red button pressed
+state_armed --> state_safe  : Red button pressed
+@
