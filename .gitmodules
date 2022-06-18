@@ -1,0 +1,3 @@
+[submodule "lasermaze-node-red"]
+	path = lasermaze-node-red
+	url = https://github.com/pe1mew/lasermaze-1.git
