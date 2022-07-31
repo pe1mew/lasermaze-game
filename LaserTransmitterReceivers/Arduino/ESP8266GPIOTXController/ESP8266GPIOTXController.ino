@@ -42,7 +42,7 @@ const int OUTPUT_6_PIN = 13;  // GPIO13 D7/MOSI
 const int OUTPUT_7_PIN = 15;
 
 uint8_t outputState    = 0x00;
-uint8_t newOutputState = 0xFF;
+uint8_t newOutputState = 0x00; //0xFF;
 bool    setState       = false;
 bool    sendState      = false;
  
