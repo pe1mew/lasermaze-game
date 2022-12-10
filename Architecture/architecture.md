@@ -26,7 +26,7 @@ The following hardware is required:
  - A computer that can run the software specified above (I used a Raspberry-Pi 4 with a touch screen)
  - Any Wifi-accesspoint with a router that has a DHCP-server. 
  - ESP8266 D1 mini for each TX- and RX-concentrator (fits on the concentrator boards in this repository) 
- - Laser emitters (see [components specified here..](..LaserTransmitterReceivers/readme.md))
- - LDR light detectors (see [components specified here..](..LaserTransmitterReceivers/readme.md))
- - Magnets are optional (see [components specified here..](..LaserTransmitterReceivers/readme.md)
+ - Laser emitters (see [components specified here..](../LaserTransmitterReceivers/readme.md))
+ - LDR light detectors (see [components specified here..](../LaserTransmitterReceivers/readme.md))
+ - Magnets are optional (see [components specified here..](../LaserTransmitterReceivers/readme.md)
  - PLA to print the laser transmitter and receiver mounts. 
