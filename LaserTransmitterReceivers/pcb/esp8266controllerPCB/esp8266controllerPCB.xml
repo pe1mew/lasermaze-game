@@ -1,0 +1,1310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>C:\Users\drasv\github\lasermaze-game\LaserTransmitterReceivers\pcb\esp8266controllerPCB\esp8266controllerPCB.sch</source>
+    <date>22-5-2022 13:33:18</date>
+    <tool>Eeschema (5.1.9)-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>esp8266controllerPCB.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="U1">
+      <value>WeMos_D1_mini</value>
+      <footprint>Module:WEMOS_D1_mini_light</footprint>
+      <datasheet>https://wiki.wemos.cc/products:d1:d1_mini#documentation</datasheet>
+      <libsource lib="MCU_Module" part="WeMos_D1_mini" description="32-bit microcontroller module with WiFi"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6277B2D7</tstamp>
+    </comp>
+    <comp ref="R10">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6277C326</tstamp>
+    </comp>
+    <comp ref="R14">
+      <value>150</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6277CBF0</tstamp>
+    </comp>
+    <comp ref="D10">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6277D358</tstamp>
+    </comp>
+    <comp ref="D14">
+      <value>BAT54S</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/ds11005.pdf</datasheet>
+      <libsource lib="Diode" part="BAT54S" description="schottky barrier diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62780899</tstamp>
+    </comp>
+    <comp ref="J6">
+      <value>0</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-3_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Screw_Terminal_01x03" description="Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62782057</tstamp>
+    </comp>
+    <comp ref="C23">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62785567</tstamp>
+    </comp>
+    <comp ref="C19">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627867A0</tstamp>
+    </comp>
+    <comp ref="C15">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6279462C</tstamp>
+    </comp>
+    <comp ref="R11">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627B9F18</tstamp>
+    </comp>
+    <comp ref="R15">
+      <value>150</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627B9F1E</tstamp>
+    </comp>
+    <comp ref="D11">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627B9F24</tstamp>
+    </comp>
+    <comp ref="Q6">
+      <value>85N3LHS</value>
+      <footprint>Package_TO_SOT_THT:SIPAK_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="Q_NMOS_GDS" description="N-MOSFET transistor, gate/drain/source"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627B9F2A</tstamp>
+    </comp>
+    <comp ref="D15">
+      <value>BAT54S</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/ds11005.pdf</datasheet>
+      <libsource lib="Diode" part="BAT54S" description="schottky barrier diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627B9F30</tstamp>
+    </comp>
+    <comp ref="J7">
+      <value>1</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-3_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Screw_Terminal_01x03" description="Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627B9F36</tstamp>
+    </comp>
+    <comp ref="C24">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627B9F3D</tstamp>
+    </comp>
+    <comp ref="C20">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627B9F43</tstamp>
+    </comp>
+    <comp ref="C16">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627B9F63</tstamp>
+    </comp>
+    <comp ref="C18">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627CC2CC</tstamp>
+    </comp>
+    <comp ref="C22">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627CC2AC</tstamp>
+    </comp>
+    <comp ref="C26">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627CC2A6</tstamp>
+    </comp>
+    <comp ref="J9">
+      <value>3</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-3_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Screw_Terminal_01x03" description="Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627CC29F</tstamp>
+    </comp>
+    <comp ref="D17">
+      <value>BAT54S</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/ds11005.pdf</datasheet>
+      <libsource lib="Diode" part="BAT54S" description="schottky barrier diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627CC299</tstamp>
+    </comp>
+    <comp ref="Q8">
+      <value>85N3LHS</value>
+      <footprint>Package_TO_SOT_THT:SIPAK_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="Q_NMOS_GDS" description="N-MOSFET transistor, gate/drain/source"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627CC293</tstamp>
+    </comp>
+    <comp ref="D13">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627CC28D</tstamp>
+    </comp>
+    <comp ref="R17">
+      <value>150</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627CC287</tstamp>
+    </comp>
+    <comp ref="R13">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627CC281</tstamp>
+    </comp>
+    <comp ref="C17">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627C43CF</tstamp>
+    </comp>
+    <comp ref="C21">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627C43AF</tstamp>
+    </comp>
+    <comp ref="C25">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627C43A9</tstamp>
+    </comp>
+    <comp ref="J8">
+      <value>2</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-3_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Screw_Terminal_01x03" description="Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627C43A2</tstamp>
+    </comp>
+    <comp ref="D16">
+      <value>BAT54S</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/ds11005.pdf</datasheet>
+      <libsource lib="Diode" part="BAT54S" description="schottky barrier diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627C439C</tstamp>
+    </comp>
+    <comp ref="D12">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627C4390</tstamp>
+    </comp>
+    <comp ref="R16">
+      <value>150</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627C438A</tstamp>
+    </comp>
+    <comp ref="R12">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627C4384</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280D9DD</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>150</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280D9E3</tstamp>
+    </comp>
+    <comp ref="D3">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280D9E9</tstamp>
+    </comp>
+    <comp ref="Q1">
+      <value>85N3LHS</value>
+      <footprint>Package_TO_SOT_THT:SIPAK_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="Q_NMOS_GDS" description="N-MOSFET transistor, gate/drain/source"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280D9EF</tstamp>
+    </comp>
+    <comp ref="D7">
+      <value>BAT54S</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/ds11005.pdf</datasheet>
+      <libsource lib="Diode" part="BAT54S" description="schottky barrier diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280D9F5</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>4</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-3_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Screw_Terminal_01x03" description="Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280D9FB</tstamp>
+    </comp>
+    <comp ref="C11">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DA02</tstamp>
+    </comp>
+    <comp ref="C7">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DA08</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DA28</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DA4A</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>150</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DA50</tstamp>
+    </comp>
+    <comp ref="D4">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DA56</tstamp>
+    </comp>
+    <comp ref="Q2">
+      <value>85N3LHS</value>
+      <footprint>Package_TO_SOT_THT:SIPAK_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="Q_NMOS_GDS" description="N-MOSFET transistor, gate/drain/source"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DA5C</tstamp>
+    </comp>
+    <comp ref="D8">
+      <value>BAT54S</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/ds11005.pdf</datasheet>
+      <libsource lib="Diode" part="BAT54S" description="schottky barrier diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DA62</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>5</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-3_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Screw_Terminal_01x03" description="Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DA68</tstamp>
+    </comp>
+    <comp ref="C12">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DA6F</tstamp>
+    </comp>
+    <comp ref="C8">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DA75</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DA94</tstamp>
+    </comp>
+    <comp ref="C6">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DAD3</tstamp>
+    </comp>
+    <comp ref="C10">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DAF3</tstamp>
+    </comp>
+    <comp ref="C14">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DAF9</tstamp>
+    </comp>
+    <comp ref="J5">
+      <value>7</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-3_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Screw_Terminal_01x03" description="Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB00</tstamp>
+    </comp>
+    <comp ref="Q4">
+      <value>85N3LHS</value>
+      <footprint>Package_TO_SOT_THT:SIPAK_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="Q_NMOS_GDS" description="N-MOSFET transistor, gate/drain/source"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB0C</tstamp>
+    </comp>
+    <comp ref="D6">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB12</tstamp>
+    </comp>
+    <comp ref="R9">
+      <value>150</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB18</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB1E</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB40</tstamp>
+    </comp>
+    <comp ref="C9">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB60</tstamp>
+    </comp>
+    <comp ref="C13">
+      <value>1n</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB66</tstamp>
+    </comp>
+    <comp ref="J4">
+      <value>6</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-3_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Screw_Terminal_01x03" description="Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB6D</tstamp>
+    </comp>
+    <comp ref="D9">
+      <value>BAT54S</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.diodes.com/assets/Datasheets/ds11005.pdf</datasheet>
+      <libsource lib="Diode" part="BAT54S" description="schottky barrier diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB73</tstamp>
+    </comp>
+    <comp ref="Q3">
+      <value>85N3LHS</value>
+      <footprint>Package_TO_SOT_THT:SIPAK_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="Q_NMOS_GDS" description="N-MOSFET transistor, gate/drain/source"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB79</tstamp>
+    </comp>
+    <comp ref="D5">
+      <value>LED</value>
+      <footprint>LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB7F</tstamp>
+    </comp>
+    <comp ref="R8">
+      <value>150</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB85</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6280DB8B</tstamp>
+    </comp>
+    <comp ref="Q5">
+      <value>85N3LHS</value>
+      <footprint>Package_TO_SOT_THT:SIPAK_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="Q_NMOS_GDS" description="N-MOSFET transistor, gate/drain/source"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6277F3B2</tstamp>
+    </comp>
+    <comp ref="Q7">
+      <value>85N3LHS</value>
+      <footprint>Package_TO_SOT_THT:SIPAK_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="Q_NMOS_GDS" description="N-MOSFET transistor, gate/drain/source"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627C4396</tstamp>
+    </comp>
+    <comp ref="JP1">
+      <value>inputEnable</value>
+      <footprint>Jumpers:SMT-JUMPER_2_NO_SILK</footprint>
+      <fields>
+        <field name="PROD_ID">XXX-00000</field>
+      </fields>
+      <libsource lib="SparkFun-Jumpers" part="JUMPER-SMT_2_NO" description="Normally open jumper This jumper has two pads in close proximity to each other. Apply solder to close the connection. Round pads are easier to solder for beginners, but are a lot larger. SparkFun Product that uses the round pads:&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;https://www.sparkfun.com/products/12781&quot;&gt;SparkFun EL Sequencer&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62A1AF7B</tstamp>
+    </comp>
+    <comp ref="JP4">
+      <value>inputEnable</value>
+      <footprint>Jumpers:SMT-JUMPER_2_NO_SILK</footprint>
+      <fields>
+        <field name="PROD_ID">XXX-00000</field>
+      </fields>
+      <libsource lib="SparkFun-Jumpers" part="JUMPER-SMT_2_NO" description="Normally open jumper This jumper has two pads in close proximity to each other. Apply solder to close the connection. Round pads are easier to solder for beginners, but are a lot larger. SparkFun Product that uses the round pads:&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;https://www.sparkfun.com/products/12781&quot;&gt;SparkFun EL Sequencer&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62B932BE</tstamp>
+    </comp>
+    <comp ref="JP5">
+      <value>inputEnable</value>
+      <footprint>Jumpers:SMT-JUMPER_2_NO_SILK</footprint>
+      <fields>
+        <field name="PROD_ID">XXX-00000</field>
+      </fields>
+      <libsource lib="SparkFun-Jumpers" part="JUMPER-SMT_2_NO" description="Normally open jumper This jumper has two pads in close proximity to each other. Apply solder to close the connection. Round pads are easier to solder for beginners, but are a lot larger. SparkFun Product that uses the round pads:&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;https://www.sparkfun.com/products/12781&quot;&gt;SparkFun EL Sequencer&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62B93BEB</tstamp>
+    </comp>
+    <comp ref="JP6">
+      <value>inputEnable</value>
+      <footprint>Jumpers:SMT-JUMPER_2_NO_SILK</footprint>
+      <fields>
+        <field name="PROD_ID">XXX-00000</field>
+      </fields>
+      <libsource lib="SparkFun-Jumpers" part="JUMPER-SMT_2_NO" description="Normally open jumper This jumper has two pads in close proximity to each other. Apply solder to close the connection. Round pads are easier to solder for beginners, but are a lot larger. SparkFun Product that uses the round pads:&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;https://www.sparkfun.com/products/12781&quot;&gt;SparkFun EL Sequencer&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62B940B4</tstamp>
+    </comp>
+    <comp ref="JP7">
+      <value>inputEnable</value>
+      <footprint>Jumpers:SMT-JUMPER_2_NO_SILK</footprint>
+      <fields>
+        <field name="PROD_ID">XXX-00000</field>
+      </fields>
+      <libsource lib="SparkFun-Jumpers" part="JUMPER-SMT_2_NO" description="Normally open jumper This jumper has two pads in close proximity to each other. Apply solder to close the connection. Round pads are easier to solder for beginners, but are a lot larger. SparkFun Product that uses the round pads:&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;https://www.sparkfun.com/products/12781&quot;&gt;SparkFun EL Sequencer&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62B94573</tstamp>
+    </comp>
+    <comp ref="JP3">
+      <value>inputEnable</value>
+      <footprint>Jumpers:SMT-JUMPER_2_NO_SILK</footprint>
+      <fields>
+        <field name="PROD_ID">XXX-00000</field>
+      </fields>
+      <libsource lib="SparkFun-Jumpers" part="JUMPER-SMT_2_NO" description="Normally open jumper This jumper has two pads in close proximity to each other. Apply solder to close the connection. Round pads are easier to solder for beginners, but are a lot larger. SparkFun Product that uses the round pads:&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;https://www.sparkfun.com/products/12781&quot;&gt;SparkFun EL Sequencer&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62B94B55</tstamp>
+    </comp>
+    <comp ref="JP2">
+      <value>inputEnable</value>
+      <footprint>Jumpers:SMT-JUMPER_2_NO_SILK</footprint>
+      <fields>
+        <field name="PROD_ID">XXX-00000</field>
+      </fields>
+      <libsource lib="SparkFun-Jumpers" part="JUMPER-SMT_2_NO" description="Normally open jumper This jumper has two pads in close proximity to each other. Apply solder to close the connection. Round pads are easier to solder for beginners, but are a lot larger. SparkFun Product that uses the round pads:&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;https://www.sparkfun.com/products/12781&quot;&gt;SparkFun EL Sequencer&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62B952C2</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>L7805</value>
+      <footprint>Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown</footprint>
+      <datasheet>http://www.st.com/content/ccc/resource/technical/document/datasheet/41/4f/b3/b0/12/d4/47/88/CD00000444.pdf/files/CD00000444.pdf/jcr:content/translations/en.CD00000444.pdf</datasheet>
+      <libsource lib="Regulator_Linear" part="L7805" description="Positive 1.5A 35V Linear Regulator, Fixed Output 5V, TO-220/TO-263/TO-252"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62D47309</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>0,22uF</value>
+      <footprint>Capacitor_THT:CP_Radial_D5.0mm_P2.00mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="CP_Small" description="Polarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62D4A39D</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>0,1uF</value>
+      <footprint>Capacitor_THT:CP_Radial_D5.0mm_P2.00mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="CP_Small" description="Polarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62D4B0FF</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>1N4007</value>
+      <footprint>Diode_THT:D_DO-41_SOD81_P12.70mm_Horizontal</footprint>
+      <datasheet>http://www.vishay.com/docs/88503/1n4001.pdf</datasheet>
+      <libsource lib="Diode" part="1N4007" description="1000V 1A General Purpose Rectifier Diode, DO-41"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62E0FE1D</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>V-IN</value>
+      <footprint>TerminalBlock:TerminalBlock_Altech_AK300-2_P5.00mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Screw_Terminal_01x02" description="Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62E12A6C</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>GREEN</value>
+      <footprint>LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62EA5283</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>150</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>62EA6063</tstamp>
+    </comp>
+    <comp ref="H1">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_6mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627B6DCB</tstamp>
+    </comp>
+    <comp ref="H2">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_6mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627B7188</tstamp>
+    </comp>
+    <comp ref="H3">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_6mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>627B7E11</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector" part="Screw_Terminal_01x02">
+      <description>Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TerminalBlock*:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Screw_Terminal_01x02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="Screw_Terminal_01x03">
+      <description>Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TerminalBlock*:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Screw_Terminal_01x03</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="CP_Small">
+      <description>Polarized capacitor, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>CP_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CP_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C_Small">
+      <description>Unpolarized capacitor, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="LED">
+      <description>Light emitting diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Q_NMOS_GDS">
+      <description>N-MOSFET transistor, gate/drain/source</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Q_NMOS_GDS</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="D" type="passive"/>
+        <pin num="3" name="S" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Diode" part="1N4001">
+      <aliases>
+        <alias>1N4002</alias>
+        <alias>1N4003</alias>
+        <alias>1N4004</alias>
+        <alias>1N4005</alias>
+        <alias>1N4006</alias>
+        <alias>1N4007</alias>
+        <alias>BA157</alias>
+        <alias>BA158</alias>
+        <alias>BA159</alias>
+      </aliases>
+      <description>50V 1A General Purpose Rectifier Diode, DO-41</description>
+      <docs>http://www.vishay.com/docs/88503/1n4001.pdf</docs>
+      <footprints>
+        <fp>D*DO?41*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">1N4001</field>
+        <field name="Footprint">Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Diode" part="BAT54S">
+      <description>schottky barrier diode</description>
+      <docs>https://www.diodes.com/assets/Datasheets/ds11005.pdf</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">BAT54S</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+        <pin num="3" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MCU_Module" part="WeMos_D1_mini">
+      <description>32-bit microcontroller module with WiFi</description>
+      <docs>https://wiki.wemos.cc/products:d1:d1_mini#documentation</docs>
+      <footprints>
+        <fp>WEMOS*D1*mini*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">WeMos_D1_mini</field>
+        <field name="Footprint">Module:WEMOS_D1_mini_light</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~RST" type="input"/>
+        <pin num="2" name="A0" type="input"/>
+        <pin num="3" name="D0" type="BiDi"/>
+        <pin num="4" name="SCK/D5" type="BiDi"/>
+        <pin num="5" name="MISO/D6" type="BiDi"/>
+        <pin num="6" name="MOSI/D7" type="BiDi"/>
+        <pin num="7" name="CS/D8" type="BiDi"/>
+        <pin num="8" name="3V3" type="power_out"/>
+        <pin num="9" name="5V" type="power_in"/>
+        <pin num="10" name="GND" type="power_in"/>
+        <pin num="11" name="D4" type="BiDi"/>
+        <pin num="12" name="D3" type="BiDi"/>
+        <pin num="13" name="SDA/D2" type="BiDi"/>
+        <pin num="14" name="SCL/D1" type="BiDi"/>
+        <pin num="15" name="RX" type="input"/>
+        <pin num="16" name="TX" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole">
+      <description>Mounting Hole without connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+      </fields>
+    </libpart>
+    <libpart lib="Regulator_Linear" part="L7805">
+      <aliases>
+        <alias>L7806</alias>
+        <alias>L7808</alias>
+        <alias>L7885</alias>
+        <alias>L7809</alias>
+        <alias>L7812</alias>
+        <alias>L7815</alias>
+        <alias>L7818</alias>
+        <alias>L7824</alias>
+      </aliases>
+      <description>Positive 1.5A 35V Linear Regulator, Fixed Output 5V, TO-220/TO-263/TO-252</description>
+      <docs>http://www.st.com/content/ccc/resource/technical/document/datasheet/41/4f/b3/b0/12/d4/47/88/CD00000444.pdf/files/CD00000444.pdf/jcr:content/translations/en.CD00000444.pdf</docs>
+      <footprints>
+        <fp>TO?252*</fp>
+        <fp>TO?263*</fp>
+        <fp>TO?220*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">L7805</field>
+      </fields>
+      <pins>
+        <pin num="1" name="IN" type="power_in"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="OUT" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="SparkFun-Jumpers" part="JUMPER-SMT_2_NO">
+      <description>Normally open jumper This jumper has two pads in close proximity to each other. Apply solder to close the connection. Round pads are easier to solder for beginners, but are a lot larger. SparkFun Product that uses the round pads:&lt;ul&gt;&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/12781"&gt;SparkFun EL Sequencer&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+      <footprints>
+        <fp>*SMT-JUMPER_2_NO_NO-SILK*</fp>
+        <fp>*SMT-JUMPER_2_NO_NO-SILK_ROUND*</fp>
+        <fp>*SMT-JUMPER_2_NO_SILK*</fp>
+        <fp>*SMT-JUMPER_2_NO_SILK_ROUND*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">JP</field>
+        <field name="Value">JUMPER-SMT_2_NO</field>
+        <field name="Footprint">SMT-JUMPER_2_NO</field>
+        <field name="PROD_ID">XXX-00000</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Connector.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Device.lib</uri>
+    </library>
+    <library logical="Diode">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Diode.lib</uri>
+    </library>
+    <library logical="MCU_Module">
+      <uri>C:\Program Files\KiCad\share\kicad\library/MCU_Module.lib</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Mechanical.lib</uri>
+    </library>
+    <library logical="Regulator_Linear">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Regulator_Linear.lib</uri>
+    </library>
+    <library logical="SparkFun-Jumpers">
+      <uri>C:/Users/drasv/Documents/KiCad/Libraries/SparkFun-KiCad-Libraries/Libraries/SparkFun-Jumpers.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="Net-(D6-Pad2)">
+      <node ref="R9" pin="2"/>
+      <node ref="D6" pin="2"/>
+    </net>
+    <net code="2" name="Net-(Q4-Pad1)">
+      <node ref="R5" pin="1"/>
+      <node ref="Q4" pin="1"/>
+    </net>
+    <net code="3" name="Net-(Q3-Pad1)">
+      <node ref="Q3" pin="1"/>
+      <node ref="R4" pin="1"/>
+    </net>
+    <net code="4" name="/5V">
+      <node ref="D7" pin="2"/>
+      <node ref="R6" pin="1"/>
+      <node ref="R16" pin="1"/>
+      <node ref="R14" pin="1"/>
+      <node ref="C19" pin="2"/>
+      <node ref="U1" pin="9"/>
+      <node ref="C10" pin="2"/>
+      <node ref="D16" pin="2"/>
+      <node ref="R7" pin="1"/>
+      <node ref="J8" pin="1"/>
+      <node ref="D8" pin="2"/>
+      <node ref="J3" pin="1"/>
+      <node ref="C21" pin="2"/>
+      <node ref="J2" pin="1"/>
+      <node ref="R15" pin="1"/>
+      <node ref="D15" pin="2"/>
+      <node ref="C20" pin="2"/>
+      <node ref="J4" pin="1"/>
+      <node ref="R8" pin="1"/>
+      <node ref="D9" pin="2"/>
+      <node ref="J6" pin="1"/>
+      <node ref="D14" pin="2"/>
+      <node ref="C2" pin="1"/>
+      <node ref="R17" pin="1"/>
+      <node ref="U2" pin="3"/>
+      <node ref="R1" pin="2"/>
+      <node ref="J7" pin="1"/>
+      <node ref="R9" pin="1"/>
+      <node ref="C9" pin="2"/>
+      <node ref="D17" pin="2"/>
+      <node ref="C8" pin="2"/>
+      <node ref="C7" pin="2"/>
+      <node ref="J5" pin="1"/>
+      <node ref="C22" pin="2"/>
+      <node ref="J9" pin="1"/>
+    </net>
+    <net code="5" name="Net-(C13-Pad2)">
+      <node ref="D9" pin="3"/>
+      <node ref="D5" pin="1"/>
+      <node ref="J4" pin="2"/>
+      <node ref="C13" pin="2"/>
+      <node ref="Q3" pin="2"/>
+      <node ref="JP3" pin="1"/>
+    </net>
+    <net code="6" name="/GND">
+      <node ref="Q8" pin="3"/>
+      <node ref="D17" pin="1"/>
+      <node ref="C20" pin="1"/>
+      <node ref="Q7" pin="3"/>
+      <node ref="Q5" pin="3"/>
+      <node ref="C17" pin="1"/>
+      <node ref="Q3" pin="3"/>
+      <node ref="J7" pin="3"/>
+      <node ref="D15" pin="1"/>
+      <node ref="Q6" pin="3"/>
+      <node ref="C24" pin="1"/>
+      <node ref="C21" pin="1"/>
+      <node ref="C25" pin="1"/>
+      <node ref="J2" pin="3"/>
+      <node ref="D7" pin="1"/>
+      <node ref="Q1" pin="3"/>
+      <node ref="C7" pin="1"/>
+      <node ref="C11" pin="1"/>
+      <node ref="C3" pin="1"/>
+      <node ref="D16" pin="1"/>
+      <node ref="J8" pin="3"/>
+      <node ref="U1" pin="10"/>
+      <node ref="C19" pin="1"/>
+      <node ref="C23" pin="1"/>
+      <node ref="J6" pin="3"/>
+      <node ref="D14" pin="1"/>
+      <node ref="C16" pin="1"/>
+      <node ref="J9" pin="3"/>
+      <node ref="C18" pin="1"/>
+      <node ref="C22" pin="1"/>
+      <node ref="C15" pin="1"/>
+      <node ref="C26" pin="1"/>
+      <node ref="D8" pin="1"/>
+      <node ref="Q2" pin="3"/>
+      <node ref="D2" pin="1"/>
+      <node ref="C1" pin="2"/>
+      <node ref="U2" pin="2"/>
+      <node ref="C4" pin="1"/>
+      <node ref="J1" pin="1"/>
+      <node ref="C13" pin="1"/>
+      <node ref="C2" pin="2"/>
+      <node ref="C6" pin="1"/>
+      <node ref="C10" pin="1"/>
+      <node ref="Q4" pin="3"/>
+      <node ref="J5" pin="3"/>
+      <node ref="C14" pin="1"/>
+      <node ref="J4" pin="3"/>
+      <node ref="D9" pin="1"/>
+      <node ref="J3" pin="3"/>
+      <node ref="C8" pin="1"/>
+      <node ref="C12" pin="1"/>
+      <node ref="C5" pin="1"/>
+      <node ref="C9" pin="1"/>
+    </net>
+    <net code="7" name="Net-(D5-Pad2)">
+      <node ref="D5" pin="2"/>
+      <node ref="R8" pin="2"/>
+    </net>
+    <net code="8" name="Net-(D4-Pad2)">
+      <node ref="D4" pin="2"/>
+      <node ref="R7" pin="2"/>
+    </net>
+    <net code="9" name="Net-(Q2-Pad1)">
+      <node ref="R3" pin="1"/>
+      <node ref="Q2" pin="1"/>
+    </net>
+    <net code="10" name="Net-(C14-Pad2)">
+      <node ref="C14" pin="2"/>
+      <node ref="J5" pin="2"/>
+      <node ref="Q4" pin="2"/>
+      <node ref="D6" pin="1"/>
+    </net>
+    <net code="11" name="Net-(C12-Pad2)">
+      <node ref="D4" pin="1"/>
+      <node ref="JP2" pin="1"/>
+      <node ref="C12" pin="2"/>
+      <node ref="J3" pin="2"/>
+      <node ref="Q2" pin="2"/>
+      <node ref="D8" pin="3"/>
+    </net>
+    <net code="12" name="Net-(D1-Pad2)">
+      <node ref="D1" pin="2"/>
+      <node ref="J1" pin="2"/>
+    </net>
+    <net code="13" name="Net-(C1-Pad1)">
+      <node ref="U2" pin="1"/>
+      <node ref="C1" pin="1"/>
+      <node ref="D1" pin="1"/>
+    </net>
+    <net code="14" name="Net-(D2-Pad2)">
+      <node ref="R1" pin="1"/>
+      <node ref="D2" pin="2"/>
+    </net>
+    <net code="15" name="/PORT5">
+      <node ref="C4" pin="2"/>
+      <node ref="R3" pin="2"/>
+      <node ref="U1" pin="5"/>
+      <node ref="JP2" pin="2"/>
+    </net>
+    <net code="16" name="/PORT3">
+      <node ref="JP7" pin="2"/>
+      <node ref="U1" pin="14"/>
+      <node ref="R13" pin="2"/>
+      <node ref="C18" pin="2"/>
+    </net>
+    <net code="17" name="/PORT6">
+      <node ref="R4" pin="2"/>
+      <node ref="U1" pin="6"/>
+      <node ref="JP3" pin="2"/>
+      <node ref="C5" pin="2"/>
+    </net>
+    <net code="18" name="/PORT7">
+      <node ref="R5" pin="2"/>
+      <node ref="U1" pin="7"/>
+      <node ref="C6" pin="2"/>
+    </net>
+    <net code="19" name="/PORT0">
+      <node ref="U1" pin="11"/>
+      <node ref="C15" pin="2"/>
+      <node ref="JP4" pin="2"/>
+      <node ref="R10" pin="2"/>
+    </net>
+    <net code="20" name="/PORT1">
+      <node ref="JP5" pin="2"/>
+      <node ref="U1" pin="12"/>
+      <node ref="C16" pin="2"/>
+      <node ref="R11" pin="2"/>
+    </net>
+    <net code="21" name="Net-(Q6-Pad1)">
+      <node ref="R11" pin="1"/>
+      <node ref="Q6" pin="1"/>
+    </net>
+    <net code="22" name="Net-(D11-Pad2)">
+      <node ref="D11" pin="2"/>
+      <node ref="R15" pin="2"/>
+    </net>
+    <net code="23" name="Net-(C24-Pad2)">
+      <node ref="D11" pin="1"/>
+      <node ref="D15" pin="3"/>
+      <node ref="J7" pin="2"/>
+      <node ref="C24" pin="2"/>
+      <node ref="Q6" pin="2"/>
+      <node ref="JP5" pin="1"/>
+    </net>
+    <net code="24" name="/3V3">
+      <node ref="U1" pin="8"/>
+    </net>
+    <net code="25" name="Net-(C23-Pad2)">
+      <node ref="D10" pin="1"/>
+      <node ref="J6" pin="2"/>
+      <node ref="D14" pin="3"/>
+      <node ref="Q5" pin="2"/>
+      <node ref="JP4" pin="1"/>
+      <node ref="C23" pin="2"/>
+    </net>
+    <net code="26" name="Net-(U1-Pad15)">
+      <node ref="U1" pin="15"/>
+    </net>
+    <net code="27" name="Net-(U1-Pad16)">
+      <node ref="U1" pin="16"/>
+    </net>
+    <net code="28" name="Net-(U1-Pad2)">
+      <node ref="U1" pin="2"/>
+    </net>
+    <net code="29" name="Net-(U1-Pad3)">
+      <node ref="U1" pin="3"/>
+    </net>
+    <net code="30" name="Net-(Q5-Pad1)">
+      <node ref="Q5" pin="1"/>
+      <node ref="R10" pin="1"/>
+    </net>
+    <net code="31" name="Net-(D10-Pad2)">
+      <node ref="R14" pin="2"/>
+      <node ref="D10" pin="2"/>
+    </net>
+    <net code="32" name="Net-(D12-Pad2)">
+      <node ref="R16" pin="2"/>
+      <node ref="D12" pin="2"/>
+    </net>
+    <net code="33" name="Net-(Q7-Pad1)">
+      <node ref="Q7" pin="1"/>
+      <node ref="R12" pin="1"/>
+    </net>
+    <net code="34" name="Net-(D3-Pad2)">
+      <node ref="D3" pin="2"/>
+      <node ref="R6" pin="2"/>
+    </net>
+    <net code="35" name="Net-(Q1-Pad1)">
+      <node ref="R2" pin="1"/>
+      <node ref="Q1" pin="1"/>
+    </net>
+    <net code="36" name="Net-(C25-Pad2)">
+      <node ref="D16" pin="3"/>
+      <node ref="J8" pin="2"/>
+      <node ref="C25" pin="2"/>
+      <node ref="JP6" pin="1"/>
+      <node ref="D12" pin="1"/>
+      <node ref="Q7" pin="2"/>
+    </net>
+    <net code="37" name="/PORT4">
+      <node ref="JP1" pin="2"/>
+      <node ref="C3" pin="2"/>
+      <node ref="U1" pin="4"/>
+      <node ref="R2" pin="2"/>
+    </net>
+    <net code="38" name="Net-(C11-Pad2)">
+      <node ref="Q1" pin="2"/>
+      <node ref="C11" pin="2"/>
+      <node ref="D3" pin="1"/>
+      <node ref="D7" pin="3"/>
+      <node ref="J2" pin="2"/>
+      <node ref="JP1" pin="1"/>
+    </net>
+    <net code="39" name="Net-(Q8-Pad1)">
+      <node ref="Q8" pin="1"/>
+      <node ref="R13" pin="1"/>
+    </net>
+    <net code="40" name="Net-(C26-Pad2)">
+      <node ref="JP7" pin="1"/>
+      <node ref="C26" pin="2"/>
+      <node ref="J9" pin="2"/>
+      <node ref="D17" pin="3"/>
+      <node ref="Q8" pin="2"/>
+      <node ref="D13" pin="1"/>
+    </net>
+    <net code="41" name="Net-(D13-Pad2)">
+      <node ref="R17" pin="2"/>
+      <node ref="D13" pin="2"/>
+    </net>
+    <net code="42" name="/PORT2">
+      <node ref="C17" pin="2"/>
+      <node ref="U1" pin="13"/>
+      <node ref="JP6" pin="2"/>
+      <node ref="R12" pin="2"/>
+    </net>
+    <net code="43" name="Net-(U1-Pad1)">
+      <node ref="U1" pin="1"/>
+    </net>
+  </nets>
+</export>

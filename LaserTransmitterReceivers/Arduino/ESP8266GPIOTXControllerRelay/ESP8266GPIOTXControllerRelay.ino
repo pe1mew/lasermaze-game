@@ -31,6 +31,8 @@
 
 #include <string.h> // memset()
 #include "credentials.h"
+#include "PE1MEW_Led.h"                 // PE1MEW_Led class
+#include "PE1MEW_Timer.h"
 
 const int OUTPUT_0_PIN = 2;   // GPIO2  D4
 const int OUTPUT_1_PIN = 0;   // GPIO0  D3
@@ -40,6 +42,7 @@ const int OUTPUT_4_PIN = 14;  // GPIO14 D5/SCK
 const int OUTPUT_5_PIN = 12;  // GPIO12 D6/MISO
 const int OUTPUT_6_PIN = 13;  // GPIO13 D7/MOSI
 const int OUTPUT_7_PIN = 15;
+
 
 uint8_t outputState    = 0x00;
 uint8_t newOutputState = 0x00; //0xFF;
@@ -59,6 +62,9 @@ char topicBuffer[TOPIC_BUFFER_SIZE];            ///< helper buffer for conversio
 WiFiClient espClient;                           ///< WiFi opbject on ESP8266
 PubSubClient client(espClient);                 ///< MQTT client object
  
+PE1MEW_Timer timer;
+PE1MEW_Led   led = PE1MEW_Led(OUTPUT_7_PIN);
+
 /// \brief initialize WiFi on ESP8266
 void WiFiinit() {
   WiFi.mode(WIFI_STA);
@@ -115,6 +121,7 @@ void MQTTinit() {
 /// \brief test is MQTT client is connected and reconnect when not connected. 
 void MQTTreconnect(){
   while (!client.connected()) {
+    led.setOff();
     Serial.println("MQTT: Connecting...");
     char clientID[10] = "\0";
     itoa(chipId, clientID, 10);
@@ -171,6 +178,9 @@ void MQTTcallback(char* topic, byte* payload, unsigned int length) {
   }
   Serial.print("\n");
 
+  timer.setExpiry(45000); // 45 seconds
+  led.startBlink(true, 1, 500);
+  
   memset(topicBuffer, 0, TOPIC_BUFFER_SIZE);
   strncpy(topicBuffer, topic + 19, 6);
   
@@ -201,6 +211,12 @@ void loop() {
         
   WiFireconnect();
   MQTTreconnect();
+
+  led.process();
+
+  if(timer.getExpired() == true){
+    led.stopBlink();
+  }
 
   if((newOutputState != outputState) || setState){
     printGPIO(newOutputState);
@@ -254,12 +270,12 @@ void loop() {
       digitalWrite(OUTPUT_6_PIN, HIGH);
     }
     
-    // Test ouput pin 7
-    if((newOutputState & 0x80) == 0){
-      digitalWrite(OUTPUT_7_PIN, LOW);  
-    }else{
-      digitalWrite(OUTPUT_7_PIN, HIGH);
-    }
+//    // Test ouput pin 7
+//    if((newOutputState & 0x80) == 0){
+//      digitalWrite(OUTPUT_7_PIN, LOW);  
+//    }else{
+//      digitalWrite(OUTPUT_7_PIN, HIGH);
+//    }
 
     outputState = newOutputState;
     if(setState){
