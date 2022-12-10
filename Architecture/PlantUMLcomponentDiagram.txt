@@ -1,0 +1,44 @@
+@startuml
+
+cloud WiFi
+component [7 lasers] as lasers
+component [7 LDR] as ldr
+
+folder TX-concentrator{
+  component [Lasermaze TX] as tx1
+  component [MQTT client] as mqttClient_tx1
+  component [WiFi client] as wifi_tx1
+}
+lasers <--tx1 : TTL signals
+tx1 <--> mqttClient_tx1
+mqttClient_tx1 <--> wifi_tx1
+wifi_tx1 <--> WiFi
+
+folder RX-concentrator{
+  component [Lasermaze RX] as rx1
+  component [MQTT client] as mqttClient_rx1
+  component [WiFi client] as wifi_rx1
+}
+ldr --> rx1 : TTL signals
+rx1 <--> mqttClient_rx1
+mqttClient_rx1 <--> wifi_rx1
+wifi_rx1 <--> WiFi
+
+lasers -> ldr : light
+
+frame WiFiRouter {
+  component  Accesspoint
+  component Router
+  
+}
+WiFi <--> Accesspoint
+Accesspoint <--> Router
+
+folder Raspberry-Pi{
+  component [MQTT-roker] as mosquitto
+  component [Node-Red] as NodeRed
+}
+Router <--> mosquitto
+mosquitto <--> NodeRed
+
+@enduml
