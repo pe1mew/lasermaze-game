@@ -4,6 +4,12 @@ A laser maze game designed for BULA2022
 # Work in progress
 This is work in progress. Thing may be added or changed without notice.
 
+# Directions
+The Architecture of teh laser maze can be found [here](Architecture/architecture.md).
+
+# Questions?
+If you have any question? please raise an issue and I will ook in to it.
+
 ### Disclaimer
 The lasermaze-game is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the 
 implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.

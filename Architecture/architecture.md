@@ -2,7 +2,7 @@
 
 The lasermaze is build upon a Raspberry-Pi with Node-red and is visualised in the following component diagram: 
 
-[componentDiagramArchitecture.png](componentDiagramArchitecture.png)
+![componentDiagramArchitecture.png](componentDiagramArchitecture.png)
 
 The lasers and receivers are connected to a concentrator who control the transmitters and read the receivers. The concentrators connect to the WiFi network so that the MQTT client in the concentrator can connect to the MQTT broker for command and control. 
 
