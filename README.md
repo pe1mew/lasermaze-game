@@ -5,7 +5,7 @@ A laser maze game designed for BULA2022
 This is work in progress. Thing may be added or changed without notice.
 
 # Directions
-The Architecture of teh laser maze can be found [here](Architecture/architecture.md).
+The Architecture of the laser maze can be found [here](Architecture/architecture.md).
 
 # Questions?
 If you have any question? please raise an issue and I will ook in to it.
